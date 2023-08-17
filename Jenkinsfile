@@ -12,7 +12,7 @@ pipeline{
 
        stage("SCM config"){
         steps{
-            git branch: 'develop', changelog: false, credentialsId: 'a4d9a3ae-a84d-48ee-b989-ad637328423f', poll: false, url: 'https://github.com/naren970/semi-micro-services.git'
+            git branch: 'develop', changelog: false, credentialsId: ''n_github_secret', poll: false, url: 'https://github.com/naren970/semi-micro-services.git'
         }
        } 
     }
