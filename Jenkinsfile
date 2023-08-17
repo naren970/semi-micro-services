@@ -19,6 +19,7 @@ pipeline{
         stage("Build"){
             steps{
                 sh 'echo "${BUILD_NUMBER}" > version.txt'
+                sh 'cd api-gateway'
                 sh 'mvn compile'
                 sh 'mvn package'
                 sh 'ls -al'
