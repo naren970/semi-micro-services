@@ -6,7 +6,7 @@ pipeline{
 
        stage("Info"){
         steps{
-            "This is general information"
+            sh "echo 'This is general information'"
         }
        }
 
