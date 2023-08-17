@@ -24,7 +24,7 @@ pipeline{
                     sh 'mvn compile'
                     sh 'mvn package'
                     sh 'ls -al'
-                    scripts{
+                    script{
                         docker.build("tracrat-email", "-f Dockerfile .")
 
                     }
