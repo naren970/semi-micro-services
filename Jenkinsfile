@@ -24,7 +24,8 @@ pipeline{
                     sh 'mvn compile'
                     sh 'mvn package'
                     sh 'ls -al'
-                    sh 'nohup java -jar target/tracrat-email-1.0.jar  --port=8888 &'
+                    docker.build("tracrat-email", "-f Dockerfile .")
+                    
                 }
                 
                 
