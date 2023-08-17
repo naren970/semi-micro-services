@@ -1,0 +1,42 @@
+server:
+  port: 8080
+
+#profiles
+spring:
+  profiles:
+        active: dev
+#apigateway     
+  cloud:
+    gateway:
+      routes:
+      - id: attributes
+        uri: http://attributes-management:8088/
+        predicates:
+        - Path=/api/attachment/**,/api/attributename/**,/api/notes/**,/api/status/**,/api/type/**
+      - id: company
+        uri: http://company-management:8085/
+        predicates:
+        - Path=/api/company/**,/api/password/**,/api/v1/template/**,/api/vendor/**
+      - id: oauth2
+        uri: http://oauth2:8081/
+        predicates:
+        - Path=/oauth/token/**
+      - id: location
+        uri: http://location-management:8087/
+        predicates:
+        - Path=/api/v1/advancesearch/**,/api/v1/dashboard/**,/api/v1/failuretype/**,/api/v1/item/**,
+               /api/v1/location/**,/api/v1/profile/**,/api/v1/itemrepairitem/**,/api/v1/itemrepair/**,
+               /api/v1/reports/**,/api/v1/reportsecurity/**,/api/v1/transferlog/**,/api/v1/users/**,
+               /api/v1/usersecurity/**,/api/v1/warrantytype/**
+        
+#Logging configuration
+logging:
+    level:
+        root: "info\t\t"
+    pattern:
+        console: '%d{dd-MM-yyyy HH:mm:ss.SSS} %logger.%M - %msg%n'
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+     
