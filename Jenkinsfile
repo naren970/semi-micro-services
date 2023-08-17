@@ -24,6 +24,7 @@ pipeline{
                     sh 'mvn compile'
                     sh 'mvn package'
                     sh 'ls -al'
+                    sh 'nohup java -jar /tracrat-email-1.0.jar  --port=8888 &'
                 }
                 
                 
