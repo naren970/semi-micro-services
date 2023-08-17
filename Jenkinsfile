@@ -14,7 +14,17 @@ pipeline{
         steps{
             git branch: 'develop', changelog: false, credentialsId: 'a4d9a3ae-a84d-48ee-b989-ad637328423f', poll: false, url: 'https://github.com/naren970/semi-micro-services.git'
         }
-       } 
+       }
+
+        stage("Build"){
+            steps{
+                sh 'echo "${BUILD_NUMBER}" > version.txt'
+                sh 'mvn compile'
+                sh 'mvn package'
+                sh 'ls -al'
+                
+            }
+        } 
     }
 
 }
